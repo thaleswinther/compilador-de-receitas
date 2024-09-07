@@ -1,0 +1,10 @@
+Análise sintática concluída sem erros.
+Erro(s) de análise semântica encontrados:
+Erro na linha 15: Ingrediente duplicado: de farinha de trigo
+Erro: Ingrediente não utilizado: 
+Erro: Ingrediente não utilizado: de fermento em pó
+Erro: Ingrediente não utilizado: de leite
+Erro: Ingrediente não utilizado: de farinha de trigo
+Erro: Ingrediente não utilizado: de açúcar
+Erro: Ingrediente não utilizado: de cacau em pó
+Erro: Ingrediente não utilizado: de sal
