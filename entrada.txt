@@ -1,22 +1,19 @@
 RECEITA
 
-titulo: "Bolo Básico"
-tempo_preparo: 20 minutos
-tempo_cozimento: 40 minutos
+titulo: "Bolo Simples"
+tempo_preparo: 15 minutos
+tempo_cozimento: 30 minutos
 
 INGREDIENTES:
 - 200 g de farinha de trigo
 - 100 g de açúcar
+- 50 g de cacau em pó
 - 200 ml de leite
-- 2 ovos
+- 3 ovos
 - 1 colher de chá de fermento em pó
+- 1 pitada de sal
 
 INSTRUCOES:
-1. Pré-aqueça o forno a 180°C.
-2. Misture a farinha, o açúcar, o leite e o fermento em pó em uma tigela.
-3. Adicione os ovos a mistura e mexa até obter uma massa homogênea.
-4. Despeje a massa em uma forma untada.
-5. Asse por 40 minutos ou até que um palito inserido no centro saia limpo.
-6. Misture a farinha, o açúcar, o leite e o fermento em pó em uma tigela.
+1. Misture o açúcar e o cacau em pó em uma tigela.
 
 FIM_RECEITA

@@ -27,8 +27,13 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
 
     @Override
     public Void visitIngrediente(ReceitaParser.IngredienteContext ctx) {
-        if (erroEncontrado) return null;  
+        if (erroEncontrado) return null;
+
         StringBuilder nomeIngrediente = new StringBuilder();
+        nomeIngrediente.append(ctx.NUMERO().getText()).append(" ");
+        nomeIngrediente.append(ctx.UNIDADE_MEDIDA().getText()).append(" ");
+
+        // Incluindo TEXTO adicional se houver
         for (TerminalNode texto : ctx.TEXTO()) {
             nomeIngrediente.append(texto.getText()).append(" ");
         }
@@ -43,32 +48,46 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
         return null;
     }
 
-    @Override
-    public Void visitInstrucao(ReceitaParser.InstrucaoContext ctx) {
-        if (erroEncontrado) return null;
-        String instrucaoTexto = ctx.frase().getText();
-
-        if (tabelaDeSimbolos.instrucaoExiste(instrucaoTexto)) {
-            registrarErroSemantico(ctx.start, "Instrução duplicada - " + instrucaoTexto);
-        } else {
-            tabelaDeSimbolos.adicionarInstrucao(instrucaoTexto);
-        }
-        return null;
-    }
 
     @Override
     public Void visitFrase(ReceitaParser.FraseContext ctx) {
         if (erroEncontrado) return null; 
-        String fraseTexto = ctx.getText();
+        StringBuilder fraseTexto = new StringBuilder();
+
+        for (TerminalNode texto : ctx.TEXTO()) {
+            fraseTexto.append(texto.getText()).append(" ");
+        }
+
+        String fraseFinal = fraseTexto.toString().trim();
 
         for (String ingrediente : tabelaDeSimbolos.ingredientes) {
-            if (fraseTexto.contains(ingrediente)) {
-                tabelaDeSimbolos.adicionarInstrucao(ingrediente);
+            if (fraseFinal.contains(ingrediente)) {
+                tabelaDeSimbolos.adicionarInstrucao(fraseFinal);
             }
         }
 
         return null;
     }
+
+    @Override
+    public Void visitInstrucao(ReceitaParser.InstrucaoContext ctx) {
+        if (erroEncontrado) return null;
+
+        StringBuilder instrucaoTexto = new StringBuilder();
+        for (TerminalNode texto : ctx.frase().TEXTO()) {
+            instrucaoTexto.append(texto.getText()).append(" ");
+        }
+
+        String instrucaoFinal = instrucaoTexto.toString().trim();
+
+        if (tabelaDeSimbolos.instrucaoExiste(instrucaoFinal)) {
+            registrarErroSemantico(ctx.start, "Instrução duplicada - " + instrucaoFinal);
+        } else {
+            tabelaDeSimbolos.adicionarInstrucao(instrucaoFinal);
+        }
+        return null;
+    }
+
 
     public void verificarIngredientesNaoUtilizados() {
         if (erroEncontrado) return;  
