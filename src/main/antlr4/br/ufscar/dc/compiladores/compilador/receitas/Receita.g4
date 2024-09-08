@@ -8,7 +8,7 @@ tempo_cozimento: TEMPO_COZIMENTO ':' NUMERO UNIDADE_TEMPO;
 ingredientes: INGREDIENTES ':' ingrediente+;
 
 ingrediente: '-' NUMERO UNIDADE_MEDIDA nome_ingrediente;
-nome_ingrediente: TEXTO (TEXTO)*;
+nome_ingrediente: TEXTO? (TEXTO)*;
 
 
 instrucoes: INSTRUCOES ':' instrucao+;

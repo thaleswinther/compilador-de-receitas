@@ -25,25 +25,6 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
         }
     }
 
-    /*@Override
-    public Void visitIngrediente(ReceitaParser.IngredienteContext ctx) {
-        if (erroEncontrado) return null;
-
-        // Obter o nome do ingrediente
-        StringBuilder nomeIngrediente = new StringBuilder();
-        for (TerminalNode texto : ctx.nome_ingrediente().TEXTO()) {
-            nomeIngrediente.append(texto.getText()).append(" ");
-        }
-
-        String ingredienteStr = nomeIngrediente.toString().trim();
-
-        if (tabelaDeSimbolos.ingredienteExiste(ingredienteStr)) {
-            registrarErroSemantico(ctx.start, "Ingrediente duplicado - " + ingredienteStr);
-        } else {
-            tabelaDeSimbolos.adicionarIngrediente(ingredienteStr);
-        }
-        return null;
-    }*/
     @Override
     public Void visitIngrediente(ReceitaParser.IngredienteContext ctx) {
         if (erroEncontrado) return null;

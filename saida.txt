@@ -1,2 +1,2 @@
-Erro de sintaxe na linha 13:0 - missing TEXTO at '-'
-Erro(s) de análise sintática encontrados.
+Análise sintática concluída sem erros.
+Análise semântica concluída sem erros.

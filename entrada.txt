@@ -1,23 +1,21 @@
 RECEITA 
 
-titulo: "Bolo de Chocolate"
-tempo_preparo: 20 minutos
-tempo_cozimento: 45 minutos
+titulo: "Bolo de Cenoura"
+tempo_preparo: 15 minutos
+tempo_cozimento: 40 minutos
 
 INGREDIENTES:
+- 250 g de cenoura ralada
+- 200 g de açúcar
 - 200 g de farinha de trigo
-- 100 g de açúcar
-- 50 g de cacau em pó
-- 200 ml de leite
+- 100 ml de óleo
 - 3 ovos
-- 1 colher de chá de fermento em pó
-- 1 pitada de sal
+- 1 colher de sopa de fermento em pó
 
 INSTRUCOES:
-1. Pré-aqueça o forno a 180°C.
-2. Misture a farinha de trigo, o açúcar, o cacau em pó, o fermento em pó e o sal em uma tigela.
-3. Adicione os ovos e o leite a mistura e mexa até obter uma massa homogênea.
-4. Despeje a massa em uma forma untada.
-5. Asse por 45 minutos ou até que um palito inserido no centro saia limpo.
+1. Bata no liquidificador a cenoura ralada, o açúcar, o óleo e os ovos.
+2. Adicione a farinha de trigo e o fermento em pó e misture bem.
+3. Despeje a massa em uma forma untada.
+4. Asse por 40 minutos ou até que o bolo esteja dourado.
 
 FIM_RECEITA
