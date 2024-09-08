@@ -1,9 +1,15 @@
 <html><body>
+<style>
+ul.ingredientes { list-style-type: disc; margin-left: 40px; padding: 0; }
+ul.instrucoes { list-style-type: none; margin-left: 20px; padding: 0; }
+input[type="checkbox"] { margin-left: 0px; }
+h1, h2, p { margin-left: 0; }
+</style>
 <h1>Receita: Bolo de Chocolate</h1>
 <p>Tempo de preparo: 20 minutos</p>
 <p>Tempo de cozimento: 45 minutos</p>
 <h2>Ingredientes:</h2>
-<ul>
+<ul class='ingredientes'>
 <li>200 g de farinha de trigo</li>
 <li>100 g de açúcar</li>
 <li>50 g de cacau em pó</li>
@@ -12,11 +18,11 @@
 <li>1 pitada de sal</li>
 </ul>
 <h2>Instruções:</h2>
-<ol>
-<li>Pré-aqueça o forno a 180 ° C</li>
-<li>Misture a farinha de trigo , o açúcar , o cacau em pó , o fermento em pó e o sal em uma tigela</li>
-<li>Adicione o leite e mexa até obter uma massa homogênea</li>
-<li>Despeje a massa em uma forma untada</li>
-<li>Asse por 45 minutos ou até que um palito inserido no centro saia limpo</li>
-</ol>
+<ul class='instrucoes'>
+<li><input type="checkbox"> Pré-aqueça o forno a 180 ° C</li>
+<li><input type="checkbox"> Misture a farinha de trigo , o açúcar , o cacau em pó , o fermento em pó e o sal em uma tigela</li>
+<li><input type="checkbox"> Adicione o leite e mexa até obter uma massa homogênea</li>
+<li><input type="checkbox"> Despeje a massa em uma forma untada</li>
+<li><input type="checkbox"> Asse por 45 minutos ou até que um palito inserido no centro saia limpo</li>
+</ul>
 </body></html>
