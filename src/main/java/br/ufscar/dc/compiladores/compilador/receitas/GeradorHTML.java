@@ -1,5 +1,6 @@
 package br.ufscar.dc.compiladores.compilador.receitas;
 
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 public class GeradorHTML extends ReceitaBaseVisitor<Void> {
@@ -21,7 +22,7 @@ public class GeradorHTML extends ReceitaBaseVisitor<Void> {
                 .append(ctx.tempo_preparo().UNIDADE_TEMPO().getText()).append("</p>\n");
         html.append("<p>Tempo de cozimento: ").append(ctx.tempo_cozimento().NUMERO().getText()).append(" ")
                 .append(ctx.tempo_cozimento().UNIDADE_TEMPO().getText()).append("</p>\n");
-        
+
         visitIngredientes(ctx.ingredientes());
         visitInstrucoes(ctx.instrucoes());
 
@@ -51,9 +52,10 @@ public class GeradorHTML extends ReceitaBaseVisitor<Void> {
 
     private String formatarIngrediente(ReceitaParser.IngredienteContext ctx) {
         StringBuilder sb = new StringBuilder();
-        sb.append(ctx.getChild(0).getText()).append(" "); // '-' 
+        // Adiciona a quantidade e unidade de medida
         sb.append(ctx.NUMERO().getText()).append(" ");
         sb.append(ctx.UNIDADE_MEDIDA().getText()).append(" ");
+        // Adiciona o nome do ingrediente
         for (TerminalNode texto : ctx.nome_ingrediente().TEXTO()) {
             sb.append(texto.getText()).append(" ");
         }
@@ -62,12 +64,18 @@ public class GeradorHTML extends ReceitaBaseVisitor<Void> {
 
     private String formatarInstrucao(ReceitaParser.InstrucaoContext ctx) {
         StringBuilder sb = new StringBuilder();
-        sb.append(ctx.NUMERO().getText()).append(". ");
-        for (TerminalNode texto : ctx.frase().TEXTO()) {
-            sb.append(texto.getText()).append(" ");
+
+        for (ParseTree child : ctx.frase().children) {
+            sb.append(child.getText()).append(" ");
         }
-        return sb.toString().trim();
+
+        String textoInstrucao = sb.toString().trim().replaceFirst("^\\d+\\.\\s*", "");
+
+        return textoInstrucao.trim();
     }
+
+
+
 
     @Override
     public Void visitTitulo(ReceitaParser.TituloContext ctx) {
