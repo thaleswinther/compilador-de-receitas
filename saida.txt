@@ -1,14 +1,25 @@
-<html><body>
+<html><head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
 <style>
-ul.ingredientes { list-style-type: disc; margin-left: 40px; padding: 0; }
-ul.instrucoes { list-style-type: none; margin-left: 20px; padding: 0; }
-input[type="checkbox"] { margin-left: 0px; }
-h1, h2, p { margin-left: 0; }
+body { font-family: 'Arial', sans-serif; background-color: #f8f9fa; color: #333; padding: 20px; }
+.container { max-width: 800px; margin: 0 auto; background: #fff; padding: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.1); border-radius: 8px; }
+h1 { font-size: 2.5em; color: #343a40; text-align: center; margin-bottom: 0.5em; }
+h2 { font-size: 1.8em; color: #495057; border-bottom: 2px solid #dee2e6; padding-bottom: 0.3em; }
+p { font-size: 1.1em; color: #6c757d; margin: 0.8em 0; }
+ul { list-style-type: none; padding-left: 0; }
+ul.ingredientes li { font-size: 1.1em; padding: 0.5em 0; border-bottom: 1px solid #dee2e6; }
+ul.instrucoes li { margin-bottom: 0.5em; }
+input[type='checkbox'] { margin-right: 10px; }
+button { background-color: #28a745; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 5px; margin: 10px 0; cursor: pointer; }
+button:hover { background-color: #218838; }
 </style>
-<h1>Receita: Bolo de Chocolate</h1>
-<p>Tempo de preparo: 20 minutos</p>
-<p>Tempo de cozimento: 45 minutos</p>
-<h2>Ingredientes:</h2>
+</head><body>
+<div class='container'>
+<h1>Bolo de Chocolate</h1>
+<p><strong>Tempo de preparo:</strong> 20 minutos</p>
+<p><strong>Tempo de cozimento:</strong> 45 minutos</p>
+<h2>Ingredientes</h2>
 <ul class='ingredientes'>
 <li>200 g de farinha de trigo</li>
 <li>100 g de açúcar</li>
@@ -17,12 +28,13 @@ h1, h2, p { margin-left: 0; }
 <li>1 colher de chá de fermento em pó</li>
 <li>1 pitada de sal</li>
 </ul>
-<h2>Instruções:</h2>
+<h2>Instruções</h2>
 <ul class='instrucoes'>
-<li><input type="checkbox"> Pré-aqueça o forno a 180 ° C</li>
-<li><input type="checkbox"> Misture a farinha de trigo , o açúcar , o cacau em pó , o fermento em pó e o sal em uma tigela</li>
-<li><input type="checkbox"> Adicione o leite e mexa até obter uma massa homogênea</li>
-<li><input type="checkbox"> Despeje a massa em uma forma untada</li>
-<li><input type="checkbox"> Asse por 45 minutos ou até que um palito inserido no centro saia limpo</li>
+<li><button><input type='checkbox'> Pré-aqueça o forno a 180 ° C</button></li>
+<li><button><input type='checkbox'> Misture a farinha de trigo , o açúcar , o cacau em pó , o fermento em pó e o sal em uma tigela</button></li>
+<li><button><input type='checkbox'> Adicione o leite e mexa até obter uma massa homogênea</button></li>
+<li><button><input type='checkbox'> Despeje a massa em uma forma untada</button></li>
+<li><button><input type='checkbox'> Asse por 45 minutos ou até que um palito inserido no centro saia limpo</button></li>
 </ul>
+</div>
 </body></html>
