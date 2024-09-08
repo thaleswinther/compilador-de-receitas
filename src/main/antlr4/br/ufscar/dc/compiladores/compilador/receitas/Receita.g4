@@ -27,7 +27,7 @@ INGREDIENTES: 'INGREDIENTES';
 INSTRUCOES: 'INSTRUCOES';
 CADEIA: '"' ~[\n"']* '"';  // Cadeia de texto entre aspas
 NUMERO: [0-9]+;            // Números
-UNIDADE_MEDIDA: 'g' | 'ml' | 'colher de chá' | 'pitada' | 'ovo' | 'ovos' | 'colher de sopa' | 'dentes de alho';  // Unidades de medida
+UNIDADE_MEDIDA: 'g' | 'ml' | 'colher de chá' | 'pitada' | 'ovo' | 'ovos' | 'colher de sopa' | 'dentes';  // Unidades de medida
 TEXTO: [a-zA-Zá-úÁ-Ú\-]+( [a-zA-Zá-úÁ-Ú\-]+)*;    // Reconhece palavras e hifens
 SIMBOLO: [.,°]+;         // Símbolos para suportar medidas como "ºC", "graus Celsius"
 WS: [ \t\r\n]+ -> skip;     // Espaços em branco ignorados
