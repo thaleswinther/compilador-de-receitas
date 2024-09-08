@@ -7,7 +7,9 @@ tempo_preparo: TEMPO_PREPARO ':' NUMERO UNIDADE_TEMPO;
 tempo_cozimento: TEMPO_COZIMENTO ':' NUMERO UNIDADE_TEMPO;
 ingredientes: INGREDIENTES ':' ingrediente+;
 
-ingrediente: '-' NUMERO UNIDADE_MEDIDA TEXTO? (TEXTO)*;
+ingrediente: '-' NUMERO UNIDADE_MEDIDA nome_ingrediente;
+nome_ingrediente: TEXTO (TEXTO)*;
+
 
 instrucoes: INSTRUCOES ':' instrucao+;
 instrucao: NUMERO '.' frase '.';
@@ -26,6 +28,6 @@ INSTRUCOES: 'INSTRUCOES';
 CADEIA: '"' ~[\n"']* '"';  // Cadeia de texto entre aspas
 NUMERO: [0-9]+;            // Números
 UNIDADE_MEDIDA: 'g' | 'ml' | 'colher de chá' | 'pitada' | 'ovo' | 'ovos' | 'colher de sopa' | 'dentes de alho';  // Unidades de medida
-TEXTO: [a-zA-Zá-úÁ-Ú\-]+;    // Reconhece palavras
+TEXTO: [a-zA-Zá-úÁ-Ú\-]+( [a-zA-Zá-úÁ-Ú\-]+)*;    // Reconhece palavras e hifens
 SIMBOLO: [.,°]+;         // Símbolos para suportar medidas como "ºC", "graus Celsius"
 WS: [ \t\r\n]+ -> skip;     // Espaços em branco ignorados

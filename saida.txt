@@ -1,3 +1,2 @@
-Análise sintática concluída sem erros.
-Erro(s) de análise semântica encontrados:
-Erro: Ingrediente não utilizado - 100 g de açúcar
+Erro de sintaxe na linha 13:0 - missing TEXTO at '-'
+Erro(s) de análise sintática encontrados.

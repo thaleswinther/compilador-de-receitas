@@ -1,8 +1,8 @@
-RECEITA
+RECEITA 
 
-titulo: "Bolo Simples"
-tempo_preparo: 15 minutos
-tempo_cozimento: 30 minutos
+titulo: "Bolo de Chocolate"
+tempo_preparo: 20 minutos
+tempo_cozimento: 45 minutos
 
 INGREDIENTES:
 - 200 g de farinha de trigo
@@ -14,6 +14,10 @@ INGREDIENTES:
 - 1 pitada de sal
 
 INSTRUCOES:
-1. Misture o açúcar e o cacau em pó em uma tigela.
+1. Pré-aqueça o forno a 180°C.
+2. Misture a farinha de trigo, o açúcar, o cacau em pó, o fermento em pó e o sal em uma tigela.
+3. Adicione os ovos e o leite a mistura e mexa até obter uma massa homogênea.
+4. Despeje a massa em uma forma untada.
+5. Asse por 45 minutos ou até que um palito inserido no centro saia limpo.
 
 FIM_RECEITA

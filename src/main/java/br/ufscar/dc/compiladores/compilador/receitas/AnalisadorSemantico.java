@@ -25,16 +25,13 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
         }
     }
 
-    @Override
+    /*@Override
     public Void visitIngrediente(ReceitaParser.IngredienteContext ctx) {
         if (erroEncontrado) return null;
 
+        // Obter o nome do ingrediente
         StringBuilder nomeIngrediente = new StringBuilder();
-        nomeIngrediente.append(ctx.NUMERO().getText()).append(" ");
-        nomeIngrediente.append(ctx.UNIDADE_MEDIDA().getText()).append(" ");
-
-        // Incluindo TEXTO adicional se houver
-        for (TerminalNode texto : ctx.TEXTO()) {
+        for (TerminalNode texto : ctx.nome_ingrediente().TEXTO()) {
             nomeIngrediente.append(texto.getText()).append(" ");
         }
 
@@ -46,7 +43,33 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
             tabelaDeSimbolos.adicionarIngrediente(ingredienteStr);
         }
         return null;
+    }*/
+    @Override
+    public Void visitIngrediente(ReceitaParser.IngredienteContext ctx) {
+        if (erroEncontrado) return null;
+
+        // Obter o nome do ingrediente
+        StringBuilder nomeIngrediente = new StringBuilder();
+        for (TerminalNode texto : ctx.nome_ingrediente().TEXTO()) {
+            nomeIngrediente.append(texto.getText()).append(" ");
+        }
+
+        String ingredienteStr = nomeIngrediente.toString().trim();
+
+        // Verificar e remover "de" se estiver no início do nome do ingrediente
+        if (ingredienteStr.startsWith("de ")) {
+            ingredienteStr = ingredienteStr.substring(3);  // Remove os 3 primeiros caracteres "de "
+        }
+
+        if (tabelaDeSimbolos.ingredienteExiste(ingredienteStr)) {
+            registrarErroSemantico(ctx.start, "Ingrediente duplicado - " + ingredienteStr);
+        } else {
+            tabelaDeSimbolos.adicionarIngrediente(ingredienteStr);
+        }
+        return null;
     }
+
+
 
 
     @Override
@@ -61,6 +84,7 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
         String fraseFinal = fraseTexto.toString().trim();
 
         for (String ingrediente : tabelaDeSimbolos.ingredientes) {
+            // Verifica se o nome do ingrediente está presente na frase (sem considerar quantidade e unidade)
             if (fraseFinal.contains(ingrediente)) {
                 tabelaDeSimbolos.adicionarInstrucao(fraseFinal);
             }
@@ -68,6 +92,7 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
 
         return null;
     }
+
 
     @Override
     public Void visitInstrucao(ReceitaParser.InstrucaoContext ctx) {
