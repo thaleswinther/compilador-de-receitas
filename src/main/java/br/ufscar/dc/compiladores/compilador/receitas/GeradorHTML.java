@@ -22,8 +22,8 @@ public class GeradorHTML extends ReceitaBaseVisitor<Void> {
         html.append("<style>\n");
         html.append("body { font-family: 'Arial', sans-serif; background-color: #f8f9fa; color: #333; padding: 20px; }\n");
         html.append(".container { max-width: 800px; margin: 0 auto; background: #fff; padding: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.1); border-radius: 8px; }\n");
-        html.append("h1 { font-size: 2.5em; color: #343a40; text-align: center; margin-bottom: 0.5em; }\n");
-        html.append("h2 { font-size: 1.8em; color: #495057; border-bottom: 2px solid #dee2e6; padding-bottom: 0.3em; }\n");
+        html.append("h1 { font-size: 2.5em; color: #89C13D; text-align: center; margin-bottom: 0.5em; }\n");
+        html.append("h2 { font-size: 1.8em; color: #89C13D; border-bottom: 2px solid #89C13D; padding-bottom: 0.3em; }\n");  // Linha com cor alterada
         html.append("p { font-size: 1.1em; color: #6c757d; margin: 0.8em 0; }\n");
         html.append("ul { list-style-type: none; padding-left: 0; }\n");
         html.append("ul.ingredientes li { font-size: 1.1em; padding: 0.5em 0; border-bottom: 1px solid #dee2e6; }\n");
