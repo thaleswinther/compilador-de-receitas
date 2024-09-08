@@ -2,6 +2,7 @@ package br.ufscar.dc.compiladores.compilador.receitas;
 
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
+
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -34,24 +35,22 @@ public class Principal {
             parser.addErrorListener(errorListener);
 
             ParseTree tree = parser.receita();
+            
+            if (!errorListener.hasErrors()) {
+                // Análise semântica
+                AnalisadorSemantico semantico = new AnalisadorSemantico();
+                semantico.visit(tree);
 
-            if (errorListener.hasErrors()) {
-                writer.println("Erro(s) de análise sintática encontrados.");
-            } else {
-                writer.println("Análise sintática concluída sem erros.");
-                
-                // Realiza a análise semântica se a análise sintática for bem-sucedida
-                AnalisadorSemantico analisadorSemantico = new AnalisadorSemantico();
-                analisadorSemantico.visit(tree); // Faz a visita à árvore para a análise semântica
-
-                // Verifica se houve erros semânticos
                 if (!AnalisadorSemantico.errosSemanticos.isEmpty()) {
-                    writer.println("Erro(s) de análise semântica encontrados:");
                     for (String erro : AnalisadorSemantico.errosSemanticos) {
                         writer.println(erro);
                     }
                 } else {
-                    writer.println("Análise semântica concluída sem erros.");
+                    // Geração de código HTML
+                    GeradorHTML geradorHTML = new GeradorHTML();
+                    geradorHTML.visit(tree);
+
+                    writer.print(geradorHTML.getHTML());
                 }
             }
         } catch (Exception e) {
@@ -72,7 +71,7 @@ public class Principal {
                                 int line, int charPositionInLine, String msg, RecognitionException e) {
             if (!errorOccurred) {
                 writer.println("Erro de sintaxe na linha " + line + ":" + charPositionInLine + " - " + msg);
-                errorOccurred = true; // Para reportar apenas o primeiro erro.
+                errorOccurred = true;
             }
         }
 
@@ -81,4 +80,3 @@ public class Principal {
         }
     }
 }
-
