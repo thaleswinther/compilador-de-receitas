@@ -27,10 +27,9 @@ public class GeradorHTML extends ReceitaBaseVisitor<Void> {
         html.append("p { font-size: 1.1em; color: #6c757d; margin: 0.8em 0; }\n");
         html.append("ul { list-style-type: none; padding-left: 0; }\n");
         html.append("ul.ingredientes li { font-size: 1.1em; padding: 0.5em 0; border-bottom: 1px solid #dee2e6; }\n");
-        html.append("ul.instrucoes li { margin-bottom: 0.5em; }\n");
-        html.append("input[type='checkbox'] { margin-right: 10px; }\n");
-        html.append("button { background-color: #28a745; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 5px; margin: 10px 0; cursor: pointer; }\n");
-        html.append("button:hover { background-color: #218838; }\n");
+        html.append("ul.instrucoes li { margin-bottom: 0.8em; padding: 15px; border: 1px solid #dee2e6; border-radius: 5px; background-color: #f8f9fa; display: flex; align-items: center; }\n");
+        html.append("ul.instrucoes li input[type='checkbox'] { margin-right: 15px; }\n");
+        html.append("ul.instrucoes li span { font-size: 1.1em; color: #495057; }\n");
         html.append("</style>\n");
         html.append("</head><body>\n");
 
@@ -63,7 +62,7 @@ public class GeradorHTML extends ReceitaBaseVisitor<Void> {
     public Void visitInstrucoes(ReceitaParser.InstrucoesContext ctx) {
         html.append("<h2>Instruções</h2>\n<ul class='instrucoes'>\n");
         for (ReceitaParser.InstrucaoContext instrucaoCtx : ctx.instrucao()) {
-            html.append("<li><button><input type='checkbox'> ").append(formatarInstrucao(instrucaoCtx)).append("</button></li>\n");
+            html.append("<li><input type='checkbox'> <span>").append(formatarInstrucao(instrucaoCtx)).append("</span></li>\n");
         }
         html.append("</ul>\n");
         return null;

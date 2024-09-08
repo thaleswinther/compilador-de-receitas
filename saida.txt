@@ -9,10 +9,9 @@ h2 { font-size: 1.8em; color: #495057; border-bottom: 2px solid #dee2e6; padding
 p { font-size: 1.1em; color: #6c757d; margin: 0.8em 0; }
 ul { list-style-type: none; padding-left: 0; }
 ul.ingredientes li { font-size: 1.1em; padding: 0.5em 0; border-bottom: 1px solid #dee2e6; }
-ul.instrucoes li { margin-bottom: 0.5em; }
-input[type='checkbox'] { margin-right: 10px; }
-button { background-color: #28a745; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 5px; margin: 10px 0; cursor: pointer; }
-button:hover { background-color: #218838; }
+ul.instrucoes li { margin-bottom: 0.8em; padding: 15px; border: 1px solid #dee2e6; border-radius: 5px; background-color: #f8f9fa; display: flex; align-items: center; }
+ul.instrucoes li input[type='checkbox'] { margin-right: 15px; }
+ul.instrucoes li span { font-size: 1.1em; color: #495057; }
 </style>
 </head><body>
 <div class='container'>
@@ -30,11 +29,11 @@ button:hover { background-color: #218838; }
 </ul>
 <h2>Instruções</h2>
 <ul class='instrucoes'>
-<li><button><input type='checkbox'> Pré-aqueça o forno a 180 ° C</button></li>
-<li><button><input type='checkbox'> Misture a farinha de trigo , o açúcar , o cacau em pó , o fermento em pó e o sal em uma tigela</button></li>
-<li><button><input type='checkbox'> Adicione o leite e mexa até obter uma massa homogênea</button></li>
-<li><button><input type='checkbox'> Despeje a massa em uma forma untada</button></li>
-<li><button><input type='checkbox'> Asse por 45 minutos ou até que um palito inserido no centro saia limpo</button></li>
+<li><input type='checkbox'> <span>Pré-aqueça o forno a 180 ° C</span></li>
+<li><input type='checkbox'> <span>Misture a farinha de trigo , o açúcar , o cacau em pó , o fermento em pó e o sal em uma tigela</span></li>
+<li><input type='checkbox'> <span>Adicione o leite e mexa até obter uma massa homogênea</span></li>
+<li><input type='checkbox'> <span>Despeje a massa em uma forma untada</span></li>
+<li><input type='checkbox'> <span>Asse por 45 minutos ou até que um palito inserido no centro saia limpo</span></li>
 </ul>
 </div>
 </body></html>
