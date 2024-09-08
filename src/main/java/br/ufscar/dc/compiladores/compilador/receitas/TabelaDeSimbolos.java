@@ -36,15 +36,15 @@ public class TabelaDeSimbolos {
     }
 
     public Set<String> verificarIngredientesNaoUsados() {
-    Set<String> naoUsados = new HashSet<>(ingredientes);
+        Set<String> naoUsados = new HashSet<>(ingredientes);
 
-    for (String instrucao : instrucoes) {
-        // Verifica se o nome de algum ingrediente está contido na instrução
-        naoUsados.removeIf(ingrediente -> instrucao.contains(ingrediente));
+        for (String instrucao : instrucoes) {
+            // Verifica se o nome de algum ingrediente está contido na instrução
+            naoUsados.removeIf(ingrediente -> instrucao.contains(ingrediente));
+        }
+
+        return naoUsados;
     }
-
-    return naoUsados;
-}
 
 }
 

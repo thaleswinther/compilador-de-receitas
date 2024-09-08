@@ -37,9 +37,8 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
 
         String ingredienteStr = nomeIngrediente.toString().trim();
 
-        // Verificar e remover "de" se estiver no início do nome do ingrediente
         if (ingredienteStr.startsWith("de ")) {
-            ingredienteStr = ingredienteStr.substring(3);  // Remove os 3 primeiros caracteres "de "
+            ingredienteStr = ingredienteStr.substring(3);  
         }
 
         if (tabelaDeSimbolos.ingredienteExiste(ingredienteStr)) {
@@ -49,9 +48,7 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
         }
         return null;
     }
-
-
-
+    
 
     @Override
     public Void visitFrase(ReceitaParser.FraseContext ctx) {
@@ -65,7 +62,6 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
         String fraseFinal = fraseTexto.toString().trim();
 
         for (String ingrediente : tabelaDeSimbolos.ingredientes) {
-            // Verifica se o nome do ingrediente está presente na frase (sem considerar quantidade e unidade)
             if (fraseFinal.contains(ingrediente)) {
                 tabelaDeSimbolos.adicionarInstrucao(fraseFinal);
             }
@@ -73,7 +69,7 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
 
         return null;
     }
-
+    
 
     @Override
     public Void visitInstrucao(ReceitaParser.InstrucaoContext ctx) {
