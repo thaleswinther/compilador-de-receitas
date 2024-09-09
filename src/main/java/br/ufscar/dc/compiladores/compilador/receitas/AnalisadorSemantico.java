@@ -8,10 +8,16 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 
 public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
 
+    // Tabela para armazenar os ingredientes e instruções
     TabelaDeSimbolos tabelaDeSimbolos = new TabelaDeSimbolos();
+    
+    // Lista para armazenar erros semânticos encontrados
     public static List<String> errosSemanticos = new ArrayList<>();
-    private boolean erroEncontrado = false;  // Flag para marcar se já houve um erro
+    
+    // Flag para marcar se já houve um erro
+    private boolean erroEncontrado = false;  
 
+    // Método estático para registrar erros semânticos
     public static void registrarErroSemantico(Token t, String mensagem) {
         if (!errosSemanticos.isEmpty()) {
             return; 
@@ -24,7 +30,8 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
             errosSemanticos.add(String.format("Erro: %s", mensagem));
         }
     }
-
+    
+    // Visita um nó de ingrediente e verifica se já foi declarado
     @Override
     public Void visitIngrediente(ReceitaParser.IngredienteContext ctx) {
         if (erroEncontrado) return null;
@@ -50,6 +57,7 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
     }
     
 
+    // Visita um nó de frase e verifica se contém algum ingrediente
     @Override
     public Void visitFrase(ReceitaParser.FraseContext ctx) {
         if (erroEncontrado) return null; 
@@ -71,6 +79,7 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
     }
     
 
+    // Visita um nó de instrução e verifica se já foi declarado
     @Override
     public Void visitInstrucao(ReceitaParser.InstrucaoContext ctx) {
         if (erroEncontrado) return null;
@@ -91,6 +100,7 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
     }
 
 
+    // Verifica se há ingredientes declarados, mas não utilizados nas instruções
     public void verificarIngredientesNaoUtilizados() {
         if (erroEncontrado) return;  
         for (String ingrediente : tabelaDeSimbolos.verificarIngredientesNaoUsados()) {
@@ -98,6 +108,7 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
         }
     }
 
+    // Visita a receita e ao final verifica se há ingredientes não utilizados
     @Override
     public Void visitReceita(ReceitaParser.ReceitaContext ctx) {
         super.visitReceita(ctx);
