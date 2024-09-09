@@ -31,6 +31,7 @@ O compilador é responsável por fazer as seguintes análises:
 ## Como utilizar o compilador
 
 O compilador recebe como entrada um arquivo texto contendo uma receita culinária:
+
 ### Arquivo de entrada:
 ```
 RECEITA 
@@ -60,6 +61,33 @@ FIM_RECEITA
 ### HTML Gerado:
 ![image](https://github.com/user-attachments/assets/4936ecf8-eba4-40e6-9e90-46a35e5c7faf)
 
+### Regras do arquivo de entrada:
+- O arquivo deve começar com a palavra-chave RECEITA e terminar com a palavra-chave FIM_RECEITA.
+- O título da receita deve ser declarado logo após a palavra-chave RECEITA. Ele deve seguir o formato:
+```
+titulo: "Nome da Receita"
+```
+- O tempo de preparo deve ser declarado no formato:
+```
+tempo_preparo: Número Unidade de Tempo
+```
+- O tempo de cozimento deve seguir o mesmo formato do tempo de preparo:
+```
+tempo_cozimento: Número Unidade de Tempo
+```
+- A lista de ingredientes deve ser precedida pela palavra-chave INGREDIENTES:. Cada ingrediente deve ser declarado em uma linha no formato:
+```
+Quantidade Unidade de Medida Nome do Ingrediente
+exemplo:
+- 200 g de farinha de trigo
+- 100 g de açúcar
+```
+- A lista de instruções deve ser precedida pela palavra-chave INSTRUCOES:. Cada instrução deve ser numerada e seguir o formato:
+```
+1. Texto da instrução.
+2. Texto da próxima instrução.
+```
+- A receita deve ser finalizada com a palavra-chave FIM_RECEITA.
 
 ## Pré-requisitos
 - Java instalado na versão 11 ou superior
