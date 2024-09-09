@@ -1,0 +1,23 @@
+RECEITA 
+
+titulo: "Pão de Alho"
+tempo_preparo: 20 minutos
+tempo_cozimento: 30 minutos
+
+INGREDIENTES:
+- 500 g de farinha de trigo
+- 200 ml de leite
+- 100 g de manteiga
+- 10 g de fermento biológico
+- 2 dentes de alhos picados
+- 1 colher de chá de sal
+
+INSTRUCOES:
+1. Misture a farinha de trigo, o fermento biológico e o sal em uma tigela.
+2. Aqueça o leite e a manteiga até derreter.
+3. Adicione o leite e a manteiga a mistura de farinha e amasse até obter uma massa homogênea.
+4. Deixe a massa descansar por 30 minutos.
+5. Modele a massa em pães e adicione os alhos picados por cima.
+6. Asse por 30 minutos ou até que os pães estejam dourados.
+
+FIM_RECEITA

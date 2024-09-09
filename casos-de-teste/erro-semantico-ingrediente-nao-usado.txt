@@ -1,0 +1,20 @@
+RECEITA 
+
+titulo: "Bolo de Cenoura"
+tempo_preparo: 15 minutos
+tempo_cozimento: 40 minutos
+
+INGREDIENTES:
+- 250 g de cenoura ralada
+- 200 g de açúcar
+- 200 g de farinha de trigo
+- 100 ml de óleo
+- 1 colher de sopa de fermento em pó
+
+INSTRUCOES:
+1. Bata no liquidificador a cenoura ralada, o açúcar e o óleo.
+2. Adicione o fermento em pó e misture bem.
+3. Despeje a massa em uma forma untada.
+4. Asse por 40 minutos ou até que o bolo esteja dourado.
+
+FIM_RECEITA
