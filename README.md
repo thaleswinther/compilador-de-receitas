@@ -122,4 +122,6 @@ Com o ambiente configurado, basta rodar o seguinte comando e a saída será grav
 java -jar /caminho_absoluto/compilador-de-receitas/target/compilador-de-receitas-1.0-SNAPSHOT-jar-with-dependencies.jar entrada.txt saida.txt
 
 ```
+## Vídeo explicativo
+Acesse em: [Link](https://www.youtube.com/watch?v=Sj1ipDzqHwI)
 
