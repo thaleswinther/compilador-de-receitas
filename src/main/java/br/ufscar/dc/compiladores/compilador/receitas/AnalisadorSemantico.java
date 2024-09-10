@@ -3,6 +3,7 @@ package br.ufscar.dc.compiladores.compilador.receitas;
 import org.antlr.v4.runtime.Token;
 import java.util.List;
 import java.util.ArrayList;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 
@@ -84,12 +85,17 @@ public class AnalisadorSemantico extends ReceitaBaseVisitor<Void> {
     public Void visitInstrucao(ReceitaParser.InstrucaoContext ctx) {
         if (erroEncontrado) return null;
 
-        StringBuilder instrucaoTexto = new StringBuilder();
-        for (TerminalNode texto : ctx.frase().TEXTO()) {
-            instrucaoTexto.append(texto.getText()).append(" ");
+        StringBuilder instrucaoBuilder = new StringBuilder();
+
+        for (int i = 0; i < ctx.frase().getChildCount(); i++) {
+            ParseTree child = ctx.frase().getChild(i);
+            if (child instanceof TerminalNode) {
+                TerminalNode token = (TerminalNode) child;
+                instrucaoBuilder.append(token.getText()).append(" ");
+            }
         }
 
-        String instrucaoFinal = instrucaoTexto.toString().trim();
+        String instrucaoFinal = instrucaoBuilder.toString().trim();
 
         if (tabelaDeSimbolos.instrucaoExiste(instrucaoFinal)) {
             registrarErroSemantico(ctx.start, "Instrução duplicada - " + instrucaoFinal);
