@@ -89,6 +89,11 @@ exemplo:
 ```
 - A receita deve ser finalizada com a palavra-chave FIM_RECEITA.
 
+## Identificação de erros pelo compilador
+O projeto contém exemplos de execução e compilação de receitas que contém erros tanto léxicos/sintáticos, quanto semânticos.
+Os exemplos de receitas e erros estão dentro da pasta `compilador-de-receitas/casos-de-teste`.
+Os casos de teste que identificam erros estão separados em análise léxicas, análise sintáticas e análise semânticas em suas respectivas pastas.
+
 ## Pré-requisitos
 - Java instalado na versão 11 ou superior
 - Alguma IDE capaz de buildar e compilar o projeto
